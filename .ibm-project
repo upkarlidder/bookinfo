@@ -1,1 +1,1 @@
-{"build-release-ready":false,"build-debug-ready":false,"devops":false,"deploy-image":"","chart-path":"","ibm-cluster":"","motd-access":"Thu, 09 Jul 2020 16:06:44 PDT","app-id":"e7c39cec-171e-4c43-9e97-0ce41c991c2d","deploy-target":""}
+{"build-release-ready":false,"build-debug-ready":false,"devops":false,"deploy-image":"","chart-path":"","ibm-cluster":"upkar-lidder-istio-cluster","motd-access":"Fri, 10 Jul 2020 11:58:25 PDT","app-id":"e7c39cec-171e-4c43-9e97-0ce41c991c2d","deploy-target":""}

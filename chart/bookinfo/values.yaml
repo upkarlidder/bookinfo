@@ -3,8 +3,8 @@
 replicaCount: 1
 revisionHistoryLimit: 1
 image:
-  repository: icr.io/replace-me-namespace/bookinfo
-  tag: v1.0.0
+  repository: us.icr.io/prometeo/rulesdecision
+  tag: v3
   pullPolicy: Always
   resources:
     requests:
@@ -16,7 +16,7 @@ livenessProbe:
 service:
   name: python
   type: NodePort
-  servicePort: 3000
+  servicePort: 8080
 hpa:
   enabled: false
   minReplicas: 1
@@ -30,7 +30,7 @@ base:
   enabled: false
   replicaCount: 1
   image:
-    tag : v0.9.9
+    tag : v3
   weight: 100
 istio:
   enabled: false
