@@ -33,6 +33,10 @@ echo "KUBERNETES_MASTER_PORT=${KUBERNETES_MASTER_PORT}"
 echo "KUBERNETES_SERVICE_ACCOUNT_TOKEN=${KUBERNETES_SERVICE_ACCOUNT_TOKEN}"
 echo "HELM_CLIENT_VERSION=${CLIENT_VERSION}"
 
+echo "HELM_TLS_OPTION=${HELM_TLS_OPTION}"
+echo "IMAGE_REPOSITORY=${IMAGE_REPOSITORY}"
+echo "IMAGE_TAG=${IMAGE_TAG}"
+
 echo "LOCAL_VERSION=${LOCAL_VERSION}"
 
 # View build properties
@@ -214,6 +218,9 @@ helm upgrade ${RELEASE_NAME} ${CHART_PATH} ${HELM_TLS_OPTION} --install --set im
 echo "=========================================================="
 echo -e "CHECKING deployment status of release ${RELEASE_NAME} with image tag: ${IMAGE_TAG}"
 # Extract name from actual Kube deployment resource owning the deployed container image 
+echo "***"
+echo "$(helm get ${HELM_TLS_OPTION} ${RELEASE_NAME})"
+echo "***"
 DEPLOYMENT_NAME=$( helm get ${HELM_TLS_OPTION} ${RELEASE_NAME} | yq read -d'*' --tojson - | jq -r | jq -r --arg image "$IMAGE_REPOSITORY:$IMAGE_TAG" '.[] | select (.kind=="Deployment") | . as $adeployment | .spec?.template?.spec?.containers[]? | select (.image==$image) | $adeployment.metadata.name' )
 echo -e "CHECKING deployment rollout of ${DEPLOYMENT_NAME}"
 echo ""
