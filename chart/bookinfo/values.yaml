@@ -1,37 +1,47 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-replicaCount: 1
-revisionHistoryLimit: 1
-image:
-  repository: us.icr.io/prometeo/rulesdecision
-  tag: v3
-  pullPolicy: Always
-  resources:
-    requests:
-      cpu: 200m
-      memory: 300Mi
-livenessProbe:
-  initialDelaySeconds: 30
-  periodSeconds: 10
-service:
-  name: python
-  type: NodePort
-  servicePort: 8080
-hpa:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 2
-  metrics:
-    cpu:
-      targetAverageUtilization: 70
-    memory:
-      targetAverageUtilization: 70
-base:
-  enabled: false
+rulesdecision:
+  name: rulesdecision
+  version: v1
   replicaCount: 1
+  revisionHistoryLimit: 1
   image:
-    tag : v3
-  weight: 100
+    repository: us.icr.io/prometeo/rulesdecision
+    tag: v3
+    pullPolicy: Always
+    resources:
+      requests:
+        cpu: 200m
+        memory: 300Mi
+  livenessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  service:
+    name: python
+    type: NodePort
+    servicePort: 8080
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    metrics:
+      cpu:
+        targetAverageUtilization: 70
+      memory:
+        targetAverageUtilization: 70
+  base:
+    enabled: false
+    replicaCount: 1
+    image:
+      tag : v3
+    weight: 100
 istio:
   enabled: false
   weight: 100
+  virtualservices:
+    enabled: true
+  gateway:
+    enabled: true
+imagepullsecrets:
+  name: default-us-icr-io
+
