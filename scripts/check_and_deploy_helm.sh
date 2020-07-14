@@ -162,7 +162,8 @@ fi
 echo -e "Installing Helm client ${CLIENT_VERSION}"
 WORKING_DIR=$(pwd)
 mkdir ~/tmpbin && cd ~/tmpbin
-curl -L https://get.helm.sh/helm-v${CLIENT_VERSION}-linux-amd64.tar.gz -o helm.tar.gz && tar -xvf helm.tar.gz
+curl -L https://get.helm.sh/helm-v${CLIENT_VERSION}-linux-amd64.tar.gz -o helm.tgz
+tar -xvf helm.tgz
 cd linux-amd64
 export PATH=$(pwd):$PATH
 cd $WORKING_DIR
