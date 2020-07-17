@@ -167,7 +167,7 @@ echo -e "Installing Helm client ${CLIENT_VERSION}"
 WORKING_DIR=$(pwd)
 mkdir ~/tmpbin && cd ~/tmpbin
 # curl -L https://get.helm.sh/helm-v${CLIENT_VERSION}-linux-amd64.tar.gz -o helm.tgz
-wget https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz -O helm.tgz && tar -xvf helm.tgz
+wget https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz -q -O helm.tgz && tar -xvf helm.tgz
 # echo "file helm.tgz: $(file helm.tgz)"
 # echo "file helm1.tgz: $(file helm1.tgz)"
 # tar -xvf helm.tgz
