@@ -33,7 +33,7 @@ rulesdecision:
     enabled: false
     replicaCount: 1
     image:
-      tag : v2
+      tag : v3
     weight: 100
 istio:
   enabled: false
