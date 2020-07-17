@@ -39,7 +39,7 @@ metadata:
     app: {{  .Chart.Name }}
     version: {{  .Values.rulesdecision.version }}
 spec:
-  replicas: 1
+  replicas: {{  .Values.rulesdecision.replicaCount }}
   selector:
     matchLabels:
       app: {{  .Chart.Name }}
@@ -54,7 +54,7 @@ spec:
       containers:
       - name: {{  .Chart.Name }}
         image: {{ .Values.rulesdecision.image.repository }}:{{ .Values.rulesdecision.image.tag }}
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: {{ .Values.rulesdecision.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.rulesdecision.service.servicePort}}
         volumeMounts:

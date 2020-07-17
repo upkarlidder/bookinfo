@@ -29,14 +29,6 @@ spec:
         exact: /
     - uri:
         prefix: /coreDecision
-    - uri:
-        prefix: /static
-    - uri:
-        exact: /login
-    - uri:
-        exact: /logout
-    - uri:
-        prefix: /api/v1/products
     route:
     - destination:
         host: rulesdecision
