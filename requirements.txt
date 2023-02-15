@@ -7,4 +7,4 @@ flask-restplus
 gevent
 setuptools>=18.0
 cython
-Werkzeug==0.16.1
+Werkzeug==2.2.3
